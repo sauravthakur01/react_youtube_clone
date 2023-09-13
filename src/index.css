@@ -35,7 +35,7 @@ a {
 }
 
 .react-player {
-  height: 77vh !important;
+  height: 70vh !important;
   width: 100% !important;
 }
 
@@ -80,7 +80,7 @@ a {
   }
 
   .react-player {
-    height: 45vh !important;
+    height: 40vh !important;
   }
   .search-bar{
     width:200px;

@@ -1,18 +1,19 @@
 import { Stack , Box } from "@mui/material"
-import { VideoCard , ChannelCard } from './'
+import { VideoCard , ChannelCard  , Loader } from './'
 
-const Videos = ({videos}) => {
-    console.log(videos)
+const Videos = ({ videos, direction }) => {
+  if(!videos?.length) return <Loader />;
+  
   return (
-    <Stack direction= "row" flexWrap="wrap" justifyContent="space-evenly" alignItems="start" gap={2}>
-        {videos.map((item , idx)=>(
-            <Box key={idx}>
-                {item.id.videoId && <VideoCard video={item}/>}
-                {item.id.channelId && <ChannelCard channelDetail={item}/>}
-            </Box>
-        ))}
+    <Stack direction={direction || "row"} flexWrap="wrap" justifyContent="space-between" alignItems="start" gap={2}>
+      {videos.map((item, idx) => (
+        <Box key={idx}>
+          {item.id.videoId && <VideoCard video={item} /> }
+          {item.id.channelId && <ChannelCard channelDetail={item} />}
+        </Box>
+      ))}
     </Stack>
-  )
+  );
 }
 
 export default Videos
